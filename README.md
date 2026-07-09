@@ -317,7 +317,6 @@ order by 1;
 **Task 17: Update Book Status on Return**  
 Write a query to update the status of books in the books table to "Yes" when they are returned (based on entries in the return_status table).
 
-
 ```sql
 
 create or replace procedure add_return_records(p_return_id varchar(15), p_issued_id varchar(10), p_book_quality varchar(20))
@@ -422,13 +421,6 @@ limit 3;
 **Task 21: Stored Procedure**
 Objective:
 Create a stored procedure to manage the status of books in a library system.
-Description:
-Write a stored procedure that updates the status of a book in the library based on its issuance. The procedure should function as follows:
-The stored procedure should take the book_id as an input parameter.
-The procedure should first check if the book is available (status = 'yes').
-If the book is available, it should be issued, and the status in the books table should be updated to 'no'.
-If the book is not available (status = 'no'), the procedure should return an error message indicating that the book is currently not available.
-
 ```sql
 
 create or replace procedure issue_book(p_issued_id varchar(30), p_issued_member_id varchar(10), p_issued_book_isbn varchar(30), p_issued_emp_id varchar(10))
@@ -487,15 +479,6 @@ where isbn = '978-0-330-25864-8';
 
 **Task 22: Create Table As Select (CTAS)**
 Objective: Create a CTAS (Create Table As Select) query to identify overdue books and calculate fines.
-
-Description: Write a CTAS query to create a new table that lists each member and the books they have issued but not returned within 30 days. The table should include:
-    The number of overdue books.
-    The total fines, with each day's fine calculated at $0.50.
-    The number of books issued by each member.
-    The resulting table should show:
-    Member ID.
-    Number of overdue books.
-    Total fines.
     
 ```sql
     
